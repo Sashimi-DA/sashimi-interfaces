@@ -119,6 +119,18 @@ interface IFish {
 		payable external returns (bytes32 sliceID, uint256 expiration); 
 	
 	/////////////////////////////////////////////////////
+	// fundSlice
+	//
+	// Anyone can provide additional funds to pay storage rent for
+	// a given record.
+	//
+	// If a record does not exist, this method will revert.
+	//
+	// @param sliceId the UUID of the slice record you want to fund.
+	/////////////////////////////////////////////////////
+	function fundSlice(bytes32 sliceId) external payable;
+	
+	/////////////////////////////////////////////////////
 	// addOwners
 	//
 	// This method is called by record owners to add a list
@@ -147,6 +159,10 @@ interface IFish {
 	//
 	// This method should violently revert the entire operation
 	// if the UUID is missing or out of storage rent but not yet pruned.
+	//
+	// This method will not prevent a user from revoking the entire
+	// owner list. In this way, records can become immutable
+	// and irrevocable much like a data trust.
 	//
 	// After the method has returned, it is guaranteed that the
 	// provided addresses have had their ownership status revoked.
