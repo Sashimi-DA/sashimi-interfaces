@@ -40,7 +40,7 @@ using EnumerableSet for EnumerableSet.AddressSet;
 //    records from storage and indexes when rent has been exhausted.
 //
 // This file demonstrates the interface that a solidity smart contract would interact with
-// as part of a core precompilation library that is supplised to all Sashimi developers.
+// as part of a core precompilation library that is supplied to all Sashimi developers.
 // Most of these methods should also be directly exposed via RPC endpoints to avoid
 // expensive operations like MLOADing 256kb into EVM memory for insertion. That is to say,
 // this interface is demonstrative of a combined smart contract and RPC experience for
