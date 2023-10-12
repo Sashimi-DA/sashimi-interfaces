@@ -131,6 +131,24 @@ interface IFish {
 	function fundSlice(bytes32 sliceId) external payable;
 	
 	/////////////////////////////////////////////////////
+	// withdraw
+	//
+	// Owners can make a withdrawal from the data account
+	// balance, revoking some amount of storage rent. Owners
+	// can only withdrawl up to the current account balance
+	// or it will fail. Making a withdrawal for the total
+	// account balance is functionally equivalent to deleting
+	// the record.
+	//
+	// @param sliceId the UUID of the record to withdrawl from
+	// @param amount  the amount to withdrawl, less that total balance
+	// @return the remaining data account balance after withdrawl
+	/////////////////////////////////////////////////////
+	function withdraw(bytes32 sliceId, uint256 amount) external returns (uint256);
+
+	/////////////////////////////////////////////////////
+	
+	/////////////////////////////////////////////////////
 	// addOwners
 	//
 	// This method is called by record owners to add a list
